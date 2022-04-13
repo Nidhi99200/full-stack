@@ -5,62 +5,78 @@ import { useEffect, useState } from 'react'
 function App() {
           const [userInput, setUserInput]=useState(
             {
-              name:"",
-              usn:"",
-              gender:"",
-              phoneno:"",
-              college:""
+              english:0,
+              hindi:0
             }            
           );
-          const handleNameChange=(event)=>{
-            const obj={
+          const [userInput1, setUserInput1]=useState(
+            {
+              english:0,
+              hindi:0
+            }            
+          );
+          //const [showVal, setShowVal] = useState(false);
+        
+
+          const handleNameChange1=(event)=>{
+            const obj1={
               ...userInput,
-              name:event.target.value
+              english:event.target.value
             }
-            setUserInput(obj)
+            setUserInput(obj1)
           }
-          const clickme
-         /* const handleUSNChange=(event)=>{
-            const obj={
-              name:userInput.name,
-              usn:event.target.value,
-              gender:userInput.gender,
-              phoneno:userInput.gender,
-              college:userInput.college
+          const handleNameChange2=(event)=>{
+            const obj1={
+              ...userInput,
+              hindi:event.target.value
             }
+            setUserInput(obj1)
           }
-          const handleGenderChange=(event)=>{
-            const obj={
-              name:u,
-              usn:userInput.usn,
-              gender:userInput.gender,
-              phoneno:userInput.gender,
-              college:userInput.college
+          const handleNameChange3=(event)=>{
+            const obj2={
+              ...userInput1,
+              english:event.target.value
             }
+            setUserInput1(obj2)
           }
-          const handlePhoneNoChange=(event)=>{
-            const obj={
-              name:userInput.name,
-              usn:event.target.value,
-              gender:userInput.gender,
-              phoneno:userInput.gender,
-              college:userInput.college
+          const handleNameChange4=(event)=>{
+            const obj2={
+              ...userInput1,
+              hindi:event.target.value
             }
+            setUserInput1(obj2)
           }
-          const handleCollegeChange=(event)=>{
-            const obj={
-              name:userInput.name,
-              usn:event.target.value,
-              gender:userInput.gender,
-              phoneno:userInput.gender,
-              college:userInput.college
+         
+          const comp=()=>{
+            if(userInput.english>userInput1.english){
+                alert("Student 1 Scored more in english")
             }
-          }*/
+            else{
+              alert("Student 2 Scored more in english")
+            }
+            if(userInput.hindi>userInput1.hindi){
+              alert("Student 1 Scored more in hindi")
+          }
+          else{
+            alert("Student 2 Scored more in hindi")
+          }
+          }
 
           return (
             <div className="App">
-            <input placeholder='name' onChange={handleNameChange} value={userInput.name}></input>
-            <button onClick={clickme}></button>
+            <form>
+              Student 1 English:
+              <input placeholder='st1english' onChange={handleNameChange1} value={userInput.english}></input><br></br>
+              Student 1 Hindi:
+              <input placeholder='st1hindi' onChange={handleNameChange2} value={userInput.hindi}></input><br></br>
+              Student 2 English:
+              <input placeholder='st2english' onChange={handleNameChange3} value={userInput1.english}></input><br></br>
+              Student 2 Hindi:
+              <input placeholder='st2hindi' onChange={handleNameChange4} value={userInput1.hindi}></input><br></br>
+              <button onClick={comp}>Compare</button>
+              
+            </form>
+            
             </div>); 
     
 }
