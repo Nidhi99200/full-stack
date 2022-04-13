@@ -15,7 +15,6 @@ function App() {
               hindi:0
             }            
           );
-          //const [showVal, setShowVal] = useState(false);
         
 
           const handleNameChange1=(event)=>{
